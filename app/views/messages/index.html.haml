@@ -19,7 +19,7 @@
                 = group.name
       .right-header
         .right-header__button
-          Edit
+          = link_to 'Edit', edit_group_path(@group), class: "right-header__button"
     .messages
       = render partial: 'message', collection: @messages
     .form
@@ -30,12 +30,3 @@
             = fa_icon 'picture-o', class: 'icon'
             = f.file_field :image, class: 'hidden'
         = f.submit 'Send', class: 'form__submit'
-
-
-      -# %form
-      -#   %input.form__message
-      -#   .form__mask
-      -#     %label.form__mask__image
-      -#       = fa_icon 'picture-o', class: 'icon'
-      -#       %input.hidden{type: 'file'}
-      -#   %input.form__submit{type: 'submit', value: 'Send'}
