@@ -8,4 +8,23 @@ $('#user-search-field').on('keyup', function(e){
       dataType: 'json'            
   })
 
+  .done(function(users){     
+
+      if (input.length === 0) {
+          $('#user-search-result').empty();
+        }
+
+      else if (input.length !== 0){
+          $('#user-search-result').empty();
+          users.forEach(function(user){ 
+              appendUser(user)
+          });
+      }
+
+      else {
+          $('#user-search-result').empty();
+          appendNoUser("一致するユーザーが見つかりません");
+      }
+  })
+
 });
