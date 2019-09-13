@@ -1,5 +1,5 @@
-json.id      @message.id
-json.content @message.content 
-json.time    @message.created_at
+json.(@message, :content, :image)
+json.created_at @message.created_at
 json.user_name @message.user.name
-json.image   @message.image.url
+#idもデータとして渡す
+json.id @message.id
