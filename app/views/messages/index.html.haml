@@ -6,13 +6,13 @@
     .header
       .left-header
         .left-header__title
-          グループ名
+          = @group.name
         %ul.left-header__members
           Member：
           - current_user.groups.each do |group|
             = link_to user_session_path(group) do
               %li.member
-                = group.name
+                = @group.users.name
       .right-header
         .right-header__button
           = link_to 'Edit', edit_group_path(@group), class: "right-header__button"
