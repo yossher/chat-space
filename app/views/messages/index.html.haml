@@ -9,10 +9,9 @@
           = @group.name
         %ul.left-header__members
           Member：
-          - current_user.groups.each do |group|
-            = link_to user_session_path(group) do
-              %li.member
-                = @group.users.name
+          - @group.users.each do |group_user|
+            %li.member
+              = group_user.name
       .right-header
         .right-header__button
           = link_to 'Edit', edit_group_path(@group), class: "right-header__button"
